@@ -1,5 +1,5 @@
 <?php
-include "../config/koneksi.php";
+include "../config/controller.php";
 $eror = "";
 if (isset($_POST["login"])) {
   $username = strtolower($_POST["username"]);

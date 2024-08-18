@@ -1,11 +1,11 @@
 <?php
-include "config/koneksi.php";
+session_start();
+include "config/controller.php";
 
 if(!isset($_SESSION["$username"])){
   header("location: loginPage/login.php");
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,13 +107,13 @@ if(!isset($_SESSION["$username"])){
         </div>
         <ul class="menu_list">
             <li>
-                <a href="#">
+                <a href="pemasukan.php">
                     <i class="bx bxs-dashboard table"></i>
                     <span>Pemasukan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="pengeluaran.php">
                     <i class="bx bx-line-chart table"></i>
                     <span>Pengeluaran</span>
                 </a>

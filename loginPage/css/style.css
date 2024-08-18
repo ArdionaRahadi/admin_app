@@ -138,3 +138,10 @@ span {
     width: 370px;
   }
 }
+
+/* SMALL MOBILE */
+@media only screen and (max-width: 392px) {
+  .container_form form {
+    width: 345px;
+  }
+}

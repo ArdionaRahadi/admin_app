@@ -1,5 +1,5 @@
 <?php
-include "../config/koneksi.php";
+include "../config/controller.php";
 $eror = "";
 $erorPasswd = "";
 if (isset($_POST["register"])) {

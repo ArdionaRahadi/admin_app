@@ -193,13 +193,14 @@ body::-webkit-scrollbar {
   transition: all 0.5s ease;
 }
 
-.sidebar .menu_list li a.active {
-  background: #1775f1;
-  color: #eee;
-}
-
 .sidebar .menu_list li a:hover {
   background: rgb(234, 234, 234);
+}
+
+.sidebar .menu_list li a.active,
+.sidebar .menu_list li a.active:hover {
+  background: #1775f1;
+  color: #eee;
 }
 
 .sidebar .menu_list li a span {
@@ -303,6 +304,37 @@ body::-webkit-scrollbar {
   object-fit: cover;
 }
 /* MAIN */
+
+/* PEMASUKAN */
+.main_container .table {
+  /* background-color: rgba(51, 51, 51, 0.4); */
+  height: 600px;
+  overflow: auto;
+}
+
+.main_container .table::-webkit-scrollbar {
+  display: none;
+}
+
+.main_container .table .main_table {
+  /* background-color: rgba(231, 10, 10, 0.4); */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.table .main_table th,
+.table .main_table td {
+  border-bottom: 1px solid #333;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.table .main_table th {
+  background: rgba(29, 204, 248, 0.4);
+}
+/* PEMASUKAN */
 
 /* BREAK POINT */
 /* LAPTOP */
@@ -463,5 +495,9 @@ body::-webkit-scrollbar {
 
   .main .main_container {
     padding: 70px 20px 20px;
+  }
+
+  .main_container .table .main_table {
+    font-size: 0.83em;
   }
 }
