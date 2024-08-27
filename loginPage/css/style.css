@@ -19,10 +19,30 @@ body::-webkit-scrollbar {
 
 span {
   font-size: 0.85em;
-  color: red;
-  font-weight: 400;
+  color: #333;
+  font-weight: 600;
   margin-left: 6px;
   margin-top: 20px;
+  padding: 5px;
+  border: 1px solid red;
+  width: 99%;
+  display: inline-block;
+  border-radius: 5px;
+  background: rgba(243, 57, 57, 0.4);
+}
+
+span.success {
+  font-size: 0.85em;
+  color: #333;
+  font-weight: 600;
+  margin-left: 6px;
+  margin-top: 20px;
+  padding: 5px;
+  border: 1px solid limegreen;
+  width: 99%;
+  display: inline-block;
+  border-radius: 5px;
+  background: rgba(133, 253, 53, 0.4);
 }
 
 /* LOGIN FORM */
