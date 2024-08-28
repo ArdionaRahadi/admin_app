@@ -1,13 +1,29 @@
 <?php
+session_start();
 include "../config/controller.php";
-$eror = "";
 if (isset($_POST["login"])) {
   $username = strtolower($_POST["username"]);
   $password = $_POST["password"];
-  
 
   if ($username == "" || $password == "") {
     $eror = true;
+  } else {
+    $select = mysqli_query(
+      $db_conn,
+      "SELECT * FROM t_users WHERE email = '$username' OR username = '$username'"
+    );
+    $row = mysqli_fetch_assoc($select);
+    if (mysqli_num_rows($select) > 0) {
+      if (password_verify($password, $row["password"])) {
+        $_SESSION["username"] = $username;
+        $_SESSION["login"] = true;
+        header("location: ../index.php");
+      } else {
+        $erorPassword = true;
+      }
+    } else {
+      $erorUsernameOrEmail = true;
+    }
   }
 }
 ?>
@@ -33,13 +49,21 @@ if (isset($_POST["login"])) {
     <div class="container_form">
         <form method="post" accept-charset="utf-8">
             <h1>Login</h1>
-            <?php if($eror) : ?>
+            <?php if (isset($eror)): ?>
             <span>Semua Inputan Wajib Di Isi</span>
-            <?php endif ?>
+            <?php endif; ?>
+            
+            <?php if (isset($erorUsernameOrEmail)): ?>
+            <span>Username Atau Email Belum Terdaftar</span>
+            <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
                 <input class="username" type="text" name="username" id="username" placeholder="Email or Username" />
             </div>
+            
+            <?php if (isset($erorPassword)): ?>
+            <span>Password Salah</span>
+            <?php endif; ?>
             <div class="form_content">
                 <label for="password"><i class="bx bx-lock"></i></label>
                 <input class="password" type="password" name="password" id="password" placeholder="Password" />

@@ -2,7 +2,7 @@
 session_start();
 include "config/controller.php";
 
-if(!isset($_SESSION["$username"])){
+if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
   header("location: loginPage/login.php");
 }
 ?>

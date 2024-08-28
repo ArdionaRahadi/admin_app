@@ -1,2 +1,2 @@
 <?php
-$db_conn = mysqli_connect("localhost", "root", "root", "admin_app");
+$db_conn = mysqli_connect("localhost:3306", "root", "root", "admin_app");
