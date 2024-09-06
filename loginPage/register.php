@@ -1,11 +1,18 @@
 <?php
 include "../config/controller.php";
+//Ketika Tombol Signup Di Click
 if (isset($_POST["register"])) {
-  $email = strtolower($_POST["email"]);
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-  $confirmPassword = $_POST["confirmPassword"];
+  //Menangkap Inputan User
+  $email = mysqli_real_escape_string($db_conn,
+    htmlspecialchars(strtolower($_POST["email"]))
+  );
+  $username = mysqli_real_escape_string($db_conn, htmlspecialchars($_POST["username"]));
+  $password = mysqli_real_escape_string($db_conn, htmlspecialchars($_POST["password"]));
+  $confirmPassword = mysqli_real_escape_string($db_conn, 
+    htmlspecialchars($_POST["confirmPassword"])
+  );
 
+  //Validasi Form Jika User Tidak Menginputkan Apa Apa (Form Kosong)
   if (
     $username == "" ||
     $email == "" ||
@@ -13,8 +20,12 @@ if (isset($_POST["register"])) {
     $confirmPassword == ""
   ) {
     $eror = true;
+
+    //Validasi Ketika Konfirmasi Password Tidak Sama Dengan Password
   } elseif ($confirmPassword !== $password) {
     $erorPw = true;
+
+    //Mengenkripsi Password
   } else {
     $hasedPw = password_hash($password, PASSWORD_DEFAULT);
     $select_email = mysqli_query(
@@ -26,13 +37,37 @@ if (isset($_POST["register"])) {
       "SELECT * FROM t_users WHERE username = '$username'"
     );
 
+    //Mengecek Apakah Inputan User Ada Di Database
     if (mysqli_num_rows($select_email) > 0) {
       $erorEmail = true;
-    }
-    if (mysqli_num_rows($select_username) > 0) {
+    } elseif (mysqli_num_rows($select_username) > 0) {
       $erorUsername = true;
     } else {
       $success = true;
+
+      //Membuat Tabel Pemasukan
+      mysqli_query(
+        $db_conn,
+        "CREATE TABLE `t_pemasukan_$username` (
+          id INT PRIMARY KEY AUTO_INCREMENT,
+          nama VARCHAR(255),
+          harga INT(11),
+          banyaknya INT(11)
+          );"
+      );
+
+      //Membuat Tabel Pengeluaran
+      mysqli_query(
+        $db_conn,
+        "CREATE TABLE `t_pengeluaran_$username` (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            nama VARCHAR(255),
+            harga_satuan INT(11),
+            banyaknya INT(11)
+          );"
+      );
+      
+      //Memasukkan Inputan Form Registrasi Ke Database
       mysqli_query(
         $db_conn,
         "INSERT INTO t_users VALUES(NULL, '$email', '$username', '$hasedPw')"
@@ -114,7 +149,7 @@ if (isset($_POST["register"])) {
 
             <button type="submit" name="register">Sign up</button>
 
-            <p class="register">Have Account? <a href="login.php">Login</a></p>
+            <p class="register">Have Account? <a href="index.php">Login</a></p>
         </form>
     </div>
     <script src="js/script.js"></script>

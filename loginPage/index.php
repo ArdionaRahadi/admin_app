@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
     $row = mysqli_fetch_assoc($select);
     if (mysqli_num_rows($select) > 0) {
       if (password_verify($password, $row["password"])) {
-        $_SESSION["username"] = $username;
+        $_SESSION["username"] = $row["username"];
         $_SESSION["login"] = true;
         header("location: ../index.php");
       } else {
@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
             <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
-                <input class="username" type="text" name="username" id="username" placeholder="Email or Username" />
+                <input class="username" type="text" name="username" id="username" placeholder="Username" />
             </div>
             
             <?php if (isset($erorPassword)): ?>
