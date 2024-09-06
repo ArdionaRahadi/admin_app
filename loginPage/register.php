@@ -114,7 +114,7 @@ if (isset($_POST["register"])) {
             <?php endif; ?>
             <div class="form_content">
                 <label for="email"><i class="bx bx-envelope"></i></label>
-                <input class="email username" type="email" name="email" id="email" placeholder="Email" />
+                <input class="email username" type="email" name="email" id="email" placeholder="Email" required />
             </div>
 
             <?php if (isset($erorUsername)): ?>
@@ -122,11 +122,11 @@ if (isset($_POST["register"])) {
             <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
-                <input class="username" type="text" name="username" id="username" placeholder="Username" />
+                <input class="username" type="text" name="username" id="username" placeholder="Username" required />
             </div>
             <div class="form_content">
                 <label for="password"><i class="bx bx-lock"></i></label>
-                <input class="password" type="password" name="password" id="password" placeholder="Password" />
+                <input class="password" type="password" name="password" id="password" placeholder="Password" required />
             </div>
 
             <?php if (isset($erorPw)): ?>
@@ -135,7 +135,7 @@ if (isset($_POST["register"])) {
             <div class="form_content">
                 <label for="password"><i class="bx bx-lock"></i></label>
                 <input class="password" type="password" name="confirmPassword" id="confirmPasswordPpassword"
-                    placeholder="Confirm Password" />
+                    placeholder="Confirm Password" required />
             </div>
 
             <div class="checkbox showpw">

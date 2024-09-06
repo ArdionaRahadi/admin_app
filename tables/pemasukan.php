@@ -5,6 +5,8 @@ include "../config/controller.php";
 if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
   header("location: loginPage/index.php");
 } else {
+  
+  //Membuat Fungsi Select
   $sql = select("SELECT * FROM t_pemasukan_" . $_SESSION["username"]);
 }
 ?>
