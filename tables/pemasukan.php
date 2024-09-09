@@ -144,6 +144,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                 </ul>
             </div>
             <div class="table">
+                <button class="button_tambah" id="button_tambah">Tambah Data</button>
                 <table class="main_table" cellspacing="0">
                     <tr>
                         <th>#</th>
@@ -159,7 +160,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $data["nama"]; ?></td>
                         <td><?php echo $data["harga"]; ?></td>
-                        <td><?php echo $data["banyaknya"]; ?></td>
+                        <td><?php echo $data["banyaknya"]; ?> Buah</td>
                         <td><?php echo $data["harga"] *
                           $data["banyaknya"]; ?></td>
                         <td><i class="bx bx-edit"></i></td>

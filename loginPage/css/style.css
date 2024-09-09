@@ -92,7 +92,8 @@ span.success {
   border: none;
   outline: none;
   border-radius: 7px;
-  padding: 15px 35px;
+  padding: 15px 40px;
+  /* padding-left: 40px; */
   background: rgba(234, 234, 234, 1);
 }
 
@@ -104,9 +105,19 @@ span.success {
   padding: 5px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  /* gap: 5px; */
   margin-bottom: 5px;
   margin-top: 25px;
+}
+
+.container_form form .checkbox.showpw #showPw,
+.container_form form .checkbox.showpw label {
+  cursor: pointer;
+}
+
+.container_form form .checkbox label,
+.container_form form .checkbox #checkbox {
+  cursor: pointer;
 }
 
 .container_form form .checkbox {

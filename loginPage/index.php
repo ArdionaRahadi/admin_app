@@ -4,6 +4,7 @@ include "../config/controller.php";
 
 //Ketika Tombol Login Di Klik
 if (isset($_POST["login"])) {
+  
   //Mengambil Inputan User
   $username = mysqli_real_escape_string(
     $db_conn,
@@ -18,6 +19,7 @@ if (isset($_POST["login"])) {
   if ($username == "" || $password == "") {
     $eror = true;
   } else {
+    
     //Telusuri Tabel Di Databse
     $select = mysqli_query(
       $db_conn,
@@ -31,6 +33,7 @@ if (isset($_POST["login"])) {
     if (mysqli_num_rows($select) > 0) {
       //Cek Passwordnya
       if (password_verify($password, $row["password"])) {
+        
         //Memberi Session Sesuai Nama User (Di Ambil Dari Kolom Username) dan Session Login
         $_SESSION["username"] = $row["username"];
         $_SESSION["login"] = true;
@@ -71,15 +74,16 @@ if (isset($_POST["login"])) {
             <?php if (isset($eror)): ?>
             <span>Semua Inputan Wajib Di Isi</span>
             <?php endif; ?>
-            
+
             <?php if (isset($erorUsernameOrEmail)): ?>
             <span>Username Atau Email Belum Terdaftar</span>
             <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
-                <input class="username" type="text" name="username" id="username" placeholder="Username Or Email" required/>
+                <input class="username" type="text" name="username" id="username" placeholder="Username Or Email"
+                    required />
             </div>
-            
+
             <?php if (isset($erorPassword)): ?>
             <span>Password Salah</span>
             <?php endif; ?>
@@ -88,7 +92,7 @@ if (isset($_POST["login"])) {
                 <input class="password" type="password" name="password" id="password" placeholder="Password" required />
             </div>
             <div class="checkbox showpw">
-                <input onclick="showPasswd()" id="showPw" type="checkbox" />
+                <input onclick="showPasswd()" id="showPw" type="checkbox" required />
                 <label for="showPw">Show Password</label>
             </div>
 

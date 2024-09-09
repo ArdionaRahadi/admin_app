@@ -5,6 +5,8 @@ include "../config/controller.php";
 if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
   header("location: loginPage/login.php");
 }
+
+$sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
 ?>
 
 <!DOCTYPE html>
@@ -140,6 +142,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                 </ul>
             </div>
             <div class="table">
+                <button class="button_tambah" id="button_tambah">Tambah Data</button>
                 <table class="main_table" cellspacing="0">
                     <tr>
                         <th>#</th>
@@ -149,14 +152,17 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach($sql as $data) : ?>
                     <tr>
-                        <td>1</td>
-                        <td>Menjes</td>
-                        <td>Rp. 1.000</td>
-                        <td>2</td>
-                        <td>Rp. 2.000</td>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $data["nama"]; ?></td>
+                        <td><?php echo $data["harga"]; ?></td>
+                        <td><?php echo $data["banyaknya"]; ?> Buah</td>
+                        <td><?php echo $data["harga"] * $data["banyaknya"]; ?></td>
                         <td><i class="bx bx-edit"></i></td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>
