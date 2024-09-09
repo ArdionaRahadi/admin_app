@@ -93,7 +93,7 @@ if (isset($_POST["register"])) {
 
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css" />
-    <title>Sign up</title>
+    <title>AdminApp - SignUp</title>
 </head>
 
 <body style="background-color: #eaeaea">

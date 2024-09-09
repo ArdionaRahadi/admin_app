@@ -21,7 +21,7 @@ $sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
 
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css" />
-    <title>AdminApp</title>
+    <title>AdminApp - Pengeluaran</title>
 </head>
 
 <body>

@@ -68,7 +68,7 @@ if (isset($_POST["login"])) {
 
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css" />
-    <title>Login</title>
+    <title>AdminApp - Login</title>
 </head>
 
 <body style="background-color: #eaeaea">

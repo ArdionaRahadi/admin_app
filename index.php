@@ -19,7 +19,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
 
     <!-- my css -->
     <link rel="stylesheet" href="css/style.css" />
-    <title>AdminApp</title>
+    <title>AdminApp - Dasboard</title>
 </head>
 
 <body>
