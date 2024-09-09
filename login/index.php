@@ -2,6 +2,10 @@
 session_start();
 include "../config/controller.php";
 
+if(isset($_SESSION["username"]) || isset($_SESSION["login"])) {
+  header("location: ../");
+}
+
 //Ketika Tombol Login Di Klik
 if (isset($_POST["login"])) {
   
@@ -39,7 +43,7 @@ if (isset($_POST["login"])) {
         $_SESSION["login"] = true;
 
         //Mengarahkan Ke Halaman Utama
-        header("location: ../index.php");
+        header("location: ../");
       } else {
         $erorPassword = true;
       }
@@ -63,7 +67,7 @@ if (isset($_POST["login"])) {
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Login</title>
 </head>
 
@@ -76,7 +80,7 @@ if (isset($_POST["login"])) {
             <?php endif; ?>
 
             <?php if (isset($erorUsernameOrEmail)): ?>
-            <span>Username Atau Email Belum Terdaftar</span>
+            <span class="eror">Username Atau Email Belum Terdaftar</span>
             <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
@@ -85,14 +89,14 @@ if (isset($_POST["login"])) {
             </div>
 
             <?php if (isset($erorPassword)): ?>
-            <span>Password Salah</span>
+            <span class="eror">Password Salah</span>
             <?php endif; ?>
             <div class="form_content">
                 <label for="password"><i class="bx bx-lock"></i></label>
                 <input class="password" type="password" name="password" id="password" placeholder="Password" required />
             </div>
             <div class="checkbox showpw">
-                <input onclick="showPasswd()" id="showPw" type="checkbox" required />
+                <input onclick="showPasswd()" id="showPw" type="checkbox" />
                 <label for="showPw">Show Password</label>
             </div>
 
@@ -103,11 +107,11 @@ if (isset($_POST["login"])) {
             <button type="submit" name="login">Login</button>
 
             <p class="register">
-                Dont Have Account? <a href="register.php">Sign Up</a>
+                Dont Have Account? <a href="../signup/">Sign Up</a>
             </p>
         </form>
     </div>
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

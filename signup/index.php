@@ -92,7 +92,7 @@ if (isset($_POST["register"])) {
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Sign up</title>
 </head>
 
@@ -118,7 +118,7 @@ if (isset($_POST["register"])) {
             </div>
 
             <?php if (isset($erorUsername)): ?>
-            <span>Username Sudah Digunakan, Gunakan Username Lain</span>
+            <span class="eror">Username Sudah Digunakan, Gunakan Username Lain</span>
             <?php endif; ?>
             <div class="form_content">
                 <label for="username"><i class="bx bx-user"></i></label>
@@ -130,7 +130,7 @@ if (isset($_POST["register"])) {
             </div>
 
             <?php if (isset($erorPw)): ?>
-            <span>Password Tidak Sama</span>
+            <span class="eror">Password Tidak Sama</span>
             <?php endif; ?>
             <div class="form_content">
                 <label for="password"><i class="bx bx-lock"></i></label>
@@ -149,10 +149,10 @@ if (isset($_POST["register"])) {
 
             <button type="submit" name="register">Sign up</button>
 
-            <p class="register">Have Account? <a href="index.php">Login</a></p>
+            <p class="register">Have Account? <a href="../login/">Login</a></p>
         </form>
     </div>
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

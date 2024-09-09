@@ -3,7 +3,7 @@ session_start();
 include "../config/controller.php";
 
 if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
-  header("location: loginPage/index.php");
+  header("location: ../logout/");
 } else {
   
   //Membuat Fungsi Select
@@ -63,7 +63,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                         </a>
                     </li>
                     <li>
-                        <a href="../loginPage/logout.php"><i class="bx bx-log-out-circle"></i>
+                        <a href="../logout/"><i class="bx bx-log-out-circle"></i>
                             <span>Log Out</span>
                         </a>
                     </li>
@@ -88,7 +88,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
         </div>
         <ul class="menu_list">
             <li>
-                <a href="../index.php">
+                <a href="../">
                     <i class="bx bxs-dashboard dahsboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -111,13 +111,13 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
         </div>
         <ul class="menu_list">
             <li>
-                <a class="active" href="#">
+                <a class="active" href="">
                     <i class="bx bxs-dashboard table"></i>
                     <span>Pemasukan</span>
                 </a>
             </li>
             <li>
-                <a href="pengeluaran.php">
+                <a href="../pengeluaran/">
                     <i class="bx bx-line-chart table"></i>
                     <span>Pengeluaran</span>
                 </a>

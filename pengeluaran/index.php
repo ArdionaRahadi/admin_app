@@ -3,7 +3,7 @@ session_start();
 include "../config/controller.php";
 
 if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
-  header("location: loginPage/login.php");
+  header("location: ../logout");
 }
 
 $sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
@@ -61,7 +61,7 @@ $sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
                         </a>
                     </li>
                     <li>
-                        <a href="../loginPage/logout.php"><i class="bx bx-log-out-circle"></i>
+                        <a href="../logout/"><i class="bx bx-log-out-circle"></i>
                             <span>Log Out</span>
                         </a>
                     </li>
@@ -86,7 +86,7 @@ $sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
         </div>
         <ul class="menu_list">
             <li>
-                <a href="../index.php">
+                <a href="../">
                     <i class="bx bxs-dashboard dahsboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -109,7 +109,7 @@ $sql = select("SELECT * FROM t_pengeluaran_" . $_SESSION["username"]);
         </div>
         <ul class="menu_list">
             <li>
-                <a href="pemasukan.php">
+                <a href="../pemasukan/">
                     <i class="bx bxs-dashboard table"></i>
                     <span>Pemasukan</span>
                 </a>

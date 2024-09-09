@@ -3,7 +3,7 @@ session_start();
 include "config/controller.php";
 
 if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
-  header("location: loginPage/index.php");
+  header("location: login/");
 }
 ?>
 
@@ -59,7 +59,7 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
                         </a>
                     </li>
                     <li>
-                        <a href="loginPage/logout.php"><i class="bx bx-log-out-circle"></i>
+                        <a href="logout/"><i class="bx bx-log-out-circle"></i>
                             <span>Log Out</span>
                         </a>
                     </li>
@@ -107,13 +107,13 @@ if (!isset($_SESSION["username"]) && !isset($_SESSION["login"])) {
         </div>
         <ul class="menu_list">
             <li>
-                <a href="tables/pemasukan.php">
+                <a href="pemasukan/">
                     <i class="bx bxs-dashboard table"></i>
                     <span>Pemasukan</span>
                 </a>
             </li>
             <li>
-                <a href="tables/pengeluaran.php">
+                <a href="pengeluaran/">
                     <i class="bx bx-line-chart table"></i>
                     <span>Pengeluaran</span>
                 </a>
